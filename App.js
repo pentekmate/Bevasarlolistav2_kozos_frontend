@@ -20,6 +20,7 @@ import Fooldal from './Home';
 import Seged from './Seged';
 import Felvitel from './felvitel';
 import Szerkeszt from './Szerkeszt';
+import ListaEdit from './Listaszerkeszt';
 
 function HomeScreen({ navigation }) {
 
@@ -163,6 +164,7 @@ const menu = () => {
         <Stack.Screen name="Seged" component={Seged} options={{ headerStyle: { backgroundColor: 'rgb(18,18,18)' }, headerTintColor: "white", title: "Tartalom", headerTitleAlign: "center" }} />
         <Stack.Screen name="Szerkeszt" component={Szerkeszt} options={{ headerStyle: { backgroundColor: 'rgb(18,18,18)' }, headerTintColor: "white", headerTitle: "Lista módosítása" }} />
         <Stack.Screen name="Profilom szerkesztése" component={ProfilEdit} options={{ headerStyle: { backgroundColor: 'rgb(18,18,18)' }, headerTintColor: "white", headerTitle: "Profilom szerkesztése", headerTitleAlign: "center" }} />
+        <Stack.Screen name="Lista szerkesztése" component={ListaEdit} options={{ headerStyle: { backgroundColor: 'rgb(18,18,18)' }, headerTintColor: "white", headerTitle: "Lista szerkesztése", headerTitleAlign: "center" }} />
       </Stack.Navigator>
     </NavigationContainer>
 
