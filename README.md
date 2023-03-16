@@ -1,1 +1,1 @@
-# Bevasarlolistav2_kozos_frontend
+# mobilfrontend

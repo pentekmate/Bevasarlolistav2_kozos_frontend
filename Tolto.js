@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { StyleSheet, View,Dimensions,Image} from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { ImagesAssets } from "./Kepek/kepek";
-
 export default class Toltokep extends Component {
 
     constructor(props) {
@@ -55,7 +53,7 @@ export default class Toltokep extends Component {
             <View style={styles.container}>
             
             <Image
-                source={ImagesAssets.kep1} 
+                source={require('./logo.png')} 
                 style={{alignSelf:"center",width:'80%',height:'50%'}}
             />
             

@@ -8,7 +8,7 @@ import { TouchableOpacity } from "react-native";
 import { ipcim } from "./IPcim";
 const IP = require('./IPcim')
 import { useFocusEffect } from '@react-navigation/native';
-import { ImagesAssets } from './Kepek/kepek';
+
 
 const CustomDrawer = (props, { navigation }) => {
     const [profkep, SetProfkep] = useState("")
@@ -109,7 +109,7 @@ const CustomDrawer = (props, { navigation }) => {
                 {...props}
                 contentContainerStyle={{ backgroundColor: 'black' }}>
                 <ImageBackground
-                    source={ImagesAssets.kep4}
+                    source={require('./a.png')}
                     style={{ padding: 20 }}>
 
                     <TouchableOpacity style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "rgb(50,50,50)", justifyContent: "center", borderRadius: width * 0.2 / 2, alignContent: "center" }} onPress={() => props.navigation.navigate('Profilom')}>

@@ -55,9 +55,7 @@ export default class Listaad extends Component {
         { id: 2, megnevezes: "Alföldi Kenyér", isChecked: false },
         { id: 3, megnevezes: "Kávé", isChecked: false },
         { id: 4, megnevezes: "Cola", isChecked: false },
-        { id: 5, megnevezes: "Wc-papír", isChecked: false },
-        { id: 6, megnevezes: "Túró", isChecked: false },
-        
+        { id: 5, megnevezes: "Wc-papír", isChecked: false }
       ],
       visible: false,
       setVisible: false,
@@ -225,7 +223,7 @@ export default class Listaad extends Component {
       }
 
     });
-   // console.log(this.state.data)
+    // console.log(this.state.data)
     this.state.termekektomb.map((termek) => {
       if (nev == termek.megnevezes && termek.isChecked == true) {
         let index = this.state.data?.findIndex((item) => item.megnevezes == nev)
@@ -240,7 +238,7 @@ export default class Listaad extends Component {
 
   };
   ListaelemTorles = (termeknev) => {
-   // console.log(this.state.data)
+    // console.log(this.state.data)
     let tomb = this.state.data
     let tomb1 = this.state.termekektomb
     let tomb2 = this.state.segeddata
@@ -315,7 +313,7 @@ export default class Listaad extends Component {
           <View style={{ backgroundColor: "brown" }}>
             <DialogInput
               title={"Nevezed el a listádat!"}
-              textInputProps={{ maxLength: 12,autoCapitalize:true }}
+              textInputProps={{ maxLength: 12, autoCapitalize: true }}
               isDialogVisible={this.state.visible}
               submitInput={(text) => {
                 this.submit_atad(text);
@@ -327,60 +325,52 @@ export default class Listaad extends Component {
           {/*----FELSŐ CHECKBOX ELEMEI----*/}
           <View style={{ flex: 11, backgroundColor: "rgb(50,50,50)", marginTop: 20 }}>
 
-          {this.state.termekektomb.map((item, key) =>
+            {this.state.termekektomb.map((item, key) =>
               <View key={key} style={{ flexDirection: "row", flex: 1 }}>
-                {item.id%2==0?
-                <View style={{width:"50%",right:0,position:"absolute"}}>
+                {item.id % 2 == 0 ?
+                  <View style={{ width: width * 0.49, position: "relative", left: width * 0.5, top: 0 }}>
                     <Pressable onPress={() => this.handleChange(item.id, item.megnevezes)}>
-                <View
-                    style={styles.felsocheck}
-                  >
-                    <View style={styles.icon}>
-                    
-                        <MaterialCommunityIcons
-                          name={
-                            item.isChecked
-                              ? "check"
-                              : "plus"
-                          }
-                          size={24}
-                          color="rgb(1,194,154)"
-                        />
-                   
-                    </View>
-                    <Text style={{ color: "white", fontSize: 15 }}>{item.megnevezes}</Text>
+                      <View style={styles.felsocheck}>
+                        <View style={styles.icon}>
+                          <MaterialCommunityIcons
+                            name={
+                              item.isChecked
+                                ? "check"
+                                : "plus"
+                            }
+                            size={24}
+                            color="rgb(1,194,154)"
+                          />
+                        </View>
+                        <Text style={{ color: "white", fontSize: 15 }}>{item.megnevezes}</Text>
+                      </View>
+                    </Pressable>
                   </View>
-                  </Pressable>
-                </View>
-              : <View style={{width:"50%"}}>
-                  <Pressable onPress={() => this.handleChange(item.id, item.megnevezes)}>
-                <View
-                    style={styles.felsocheck}
-                  >
-                    <View style={styles.icon}>
-                    
-                        <MaterialCommunityIcons
-                          name={
-                            item.isChecked
-                              ? "check"
-                              : "plus"
-                          }
-                          size={24}
-                          color="rgb(1,194,154)"
-                        />
-                     
-                    </View>
-                    <Text style={{ color: "white", fontSize: 15 }}>{item.megnevezes}</Text>
-                  </View>
-                
-                  </Pressable>
-                </View>}
-               
+                  : <View style={{ width: width * 0.49, position: "absolute", bottom: 0 }}>
+                    <Pressable onPress={() => this.handleChange(item.id, item.megnevezes)}>
+                      <View style={styles.felsocheck}>
+                        <View style={styles.icon}>
+                          <MaterialCommunityIcons
+                            name={
+                              item.isChecked
+                                ? "check"
+                                : "plus"
+                            }
+                            size={24}
+                            color="rgb(1,194,154)"
+                          />
+                        </View>
+                        <Text style={{ color: "white", fontSize: 15 }}>{item.megnevezes}</Text>
+                      </View>
+
+                    </Pressable>
+                  </View>}
+
 
               </View>
 
             )}
-           </View>
+          </View>
 
           {/*----lISTA ELEMEINEK MUTATÁSA----*/}
           <View style={{ flex: 1, backgroundColor: "rgb(50,50,50)", paddingTop: 50 }}>

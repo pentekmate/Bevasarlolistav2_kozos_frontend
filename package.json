@@ -26,12 +26,9 @@
     "@react-navigation/native-stack": "6.6.1",
     "@react-navigation/stack": "6.2.1",
     "accordion-collapse-react-native": "^1.1.1",
-    "eas": "^0.1.0",
-    "eas-cli": "^3.8.0",
     "expo": "~47.0.7",
     "expo-app-loading": "^2.1.1",
     "expo-checkbox": "~2.2.2",
-    "expo-linear-gradient": "~12.0.1",
     "expo-status-bar": "~1.4.2",
     "native-base": "^3.4.23",
     "react": "18.1.0",
@@ -61,7 +58,8 @@
     "react-native-table-component": "^1.2.2",
     "react-native-web": "~0.18.9",
     "react-navigation": "^4.4.4",
-    "react-timer-mixin": "^0.13.4"
+    "react-timer-mixin": "^0.13.4",
+    "expo-linear-gradient": "~12.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

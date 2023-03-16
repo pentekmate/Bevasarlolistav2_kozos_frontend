@@ -124,7 +124,7 @@ const App = () => {
             //console.log(JSON.stringify(tombmentese))
 
         }
-        
+
     }
 
     const getlistakid = (id) => {
@@ -203,7 +203,7 @@ const App = () => {
                     rightOpenValue={-100}>
                     <List.Section  >
                         <List.Accordion
-                            right={props =>item.kinyitott==true?<AntDesign name="caretup" size={20} color="rgb(1,194,154)" />:<AntDesign name="caretdown" size={20} color="rgb(1,194,154)" /> }
+                            right={props => item.kinyitott == true ? <AntDesign name="caretup" size={20} color="rgb(1,194,154)" /> : <AntDesign name="caretdown" size={20} color="rgb(1,194,154)" />}
                             theme={{ colors: { background: 'rgb(50,50,50)' } }}
                             title={<Text style={{ color: "white", fontSize: 20, fontWeight: "bold" }}>{item.listak_nev}</Text>}
                             description={<Text style={{ color: "rgb(1,194,154)" }}>{getParsedDate(item.listak_keszdatum)}</Text >}
@@ -320,27 +320,10 @@ const App = () => {
                                     }}
                                 />
                             </View>
-                            <View style={{ flex: 1, justifyContent: "center" }}>
-                                <SelectDropdown
-                                    dropdownIconPosition={"left"}
-                                    defaultButtonText={"kereses"}
-                                    searchPlaceHolder="Keresés"
-                                    renderDropdownIcon={DefButtonTxt1}
-                                    buttonStyle={{ borderRadius: 20, backgroundColor: "rgb(50,50,50)", width: "100%", height: 35, borderColor: "white", borderWidth: 2 }}
-                                    data={listanevek}
-                                    search
-                                    onChangeSearchInputText={(text) => textinput(text)}
-                                    buttonTextAfterSelection={(selectedItem, index) => {
-                                        return <View style={{ flexDirection: 'row' }}>
-                                            <Entypo name="select-arrows" size={22} color={"white"} /><Text style={{ color: "white" }}>Rendezés</Text>
-                                        </View>
-                                    }}
 
-                                />
-                            </View>
                         </View>
 
-                        <FlatList
+                        <FlatList showsVerticalScrollIndicator={false}
                             data={adatok}
                             renderItem={(v) =>
                                 renderItem(v, () => {

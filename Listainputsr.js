@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Feather } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
-import { ImagesAssets } from "./Kepek/kepek";
+
 
 
 
@@ -595,7 +595,7 @@ export default class ButtonBasics extends Component {
 
                                         <View key={key} style={styles.listaelemektext} >
                                             <Image
-                                                source={ImagesAssets.kep3}
+                                                source={require('./keres.png')}
                                                 style={{ width: 23, height: 23 }}
                                             />
                                             <Text key={key} style={{ fontSize: 20, color: "white", fontWeight: "bold", position: "absolute", paddingLeft: 35 }}>{item}</Text>
