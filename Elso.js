@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, StyleSheet, FlatList, Dimensions, ActivityIndicator} from 'react-native';
+import { Text, View, StyleSheet, FlatList, Dimensions, ActivityIndicator, Pressable} from 'react-native';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -141,7 +141,8 @@ const App = () => {
 
     return (
 
-      <TouchableOpacity onPress={() => navigation.navigate('Seged', { aktid: item.listak_id, akttart: item.listak_tartalom })}>
+      <Pressable onPress={() => navigation.navigate('Seged', { aktid: item.listak_id, akttart: item.listak_tartalom })}
+      onLongPress={() => navigation.navigate('Lista szerkesztése', { aktid: item.listak_id, akttart: item.listak_tartalom })}>
         <Swipeable
           onSwipeableWillOpen={()=>forgatas(index)}
           onSwipeableWillClose={()=>setForgat()}
@@ -189,7 +190,7 @@ const App = () => {
           </LinearGradient>
           
         </Swipeable>
-      </TouchableOpacity >
+      </Pressable>
 
 
 
