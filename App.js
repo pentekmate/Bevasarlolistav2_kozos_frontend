@@ -7,6 +7,10 @@ import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+
+
+import Baratok from './Baratok';
+import BaratokKeres from './Baratkeres.js';
 import CustomDrawer from './CustomDrawer';
 import ProfilEdit from './Profszerkesztes';
 import Kiir from './Elso'
@@ -92,6 +96,11 @@ function ProfSzerkesztes({ navigation }) {
     <Profil navigation={navigation}></Profil>);
 }
 
+function BaratokLap({ navigation }) {
+  return (
+    <Baratok navigation={navigation}></Baratok>);
+}
+
 function Root({ navigation }) {
 
   return (
@@ -134,6 +143,14 @@ function Root({ navigation }) {
         headerRightContainerStyle: { marginRight: 10 },
 
       }} />
+        <Drawer.Screen name="Barátaim" component={BaratokLap} options={{
+        title: 'Barátaim',
+        drawerIcon: ({ }) => (
+          <AntDesign name="user" size={24} color="white" />
+        ),
+        headerRightContainerStyle: { marginRight: 10 },
+
+      }} />
 
 
     </Drawer.Navigator>
@@ -163,6 +180,7 @@ const menu = () => {
         <Stack.Screen name="Seged" component={Seged} options={{ headerStyle: { backgroundColor: 'rgb(18,18,18)' }, headerTintColor: "white", title: "Tartalom", headerTitleAlign: "center" }} />
         <Stack.Screen name="Szerkeszt" component={Szerkeszt} options={{ headerStyle: { backgroundColor: 'rgb(18,18,18)' }, headerTintColor: "white", headerTitle: "Lista módosítása" }} />
         <Stack.Screen name="Profilom szerkesztése" component={ProfilEdit} options={{ headerStyle: { backgroundColor: 'rgb(18,18,18)' }, headerTintColor: "white", headerTitle: "Profilom szerkesztése", headerTitleAlign: "center" }} />
+        <Stack.Screen name="Barát keresése" component={BaratokKeres} options={{ headerStyle: { backgroundColor: 'rgb(18,18,18)' }, headerTintColor: "white", headerTitle: "Profilom szerkesztése", headerTitleAlign: "center" }} />
       </Stack.Navigator>
     </NavigationContainer>
 

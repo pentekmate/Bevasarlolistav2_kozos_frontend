@@ -50,7 +50,6 @@ const CustomDrawer = (props, { navigation }) => {
             .then((responseJson) => {
                 responseJson.map((item) => {
                     SetProfkep(item.kepek_nev)
-
                 })
             })
             .catch((error) => {
@@ -98,7 +97,7 @@ const CustomDrawer = (props, { navigation }) => {
                 SetFelhasznalo(nev)
             })
             getID()
-        }, 1000);
+        }, 10000000);
         return () => clearInterval(interval);
 
     }, []);

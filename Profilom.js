@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, View,Dimensions,TouchableOpacity } from 'react-native';
+import { Text, StyleSheet, View,Dimensions,TouchableOpacity,Modal,Pressable } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Feather } from '@expo/vector-icons'; 
 import { AntDesign } from '@expo/vector-icons';
@@ -26,7 +26,7 @@ export default class Profil extends Component {
             felhasznalonev: "",
             latszodik: false,
             erkezo: [],
-            data:[ {value:50}, {value:80}, {value:90}, {value:70} ]
+            data:[ {value:50}, {value:80}, {value:90}, {value:70} ],
         };
     }
     getMaxkiadas(){
@@ -207,7 +207,6 @@ export default class Profil extends Component {
     componentDidMount() {
         this.getID().then((vissza_adatok2) => {
             this.setState({id:vissza_adatok2})
-            
             this.getListakszama();
             this.getRegisztracioDatum();
             this.getAtlagkiadas();
@@ -251,18 +250,36 @@ export default class Profil extends Component {
                  stickyHeaderIndices={[0, 2, 4,6]}
                  showsVerticalScrollIndicator={false}
                 >
+
+
+               
                     <View style={{height:height*0.09,backgroundColor:"rgb(18,18,18)",marginTop:height*0.020,borderTopEndRadius:20,borderTopLeftRadius:20}}>
                     <Text style={{fontSize:20,alignSelf:"center",fontWeight:"bold",color:"white",position:"absolute",bottom:width*0.05}}>Felhasználó adatai</Text>
                         <View style={{marginLeft:5,left:0,backgroundColor:"rgb(1,192,154)",position:"absolute",borderRadius:50,width:width*0.1,alignItems:"center",height:width*0.1,justifyContent:"center"}}><AntDesign name="user" size={25} color="white"/></View>   
                     </View>
-                    <View style={{height:height*0.1,justifyContent:"center",flexDirection:"row",backgroundColor:"rgb(32,32,32)",borderBottomLeftRadius:20,borderBottomRightRadius:20,borderBottomWidth:3,borderBottomColor:"rgb(1,194,154)"}}>
-                       <View style={{flex:2,justifyContent:"center"}}><Text style={{fontSize:18,margin:10,color:"white"}}>Felhasználónév:</Text></View>
-                        <View style={{flex:1,justifyContent:"center"}}><Text style={{fontSize:18,margin:10,color:"white"}}>{this.state.felhasznalonev}</Text>
-                        <View style={{justifyContent:"center",position:"absolute",left:width*0.16}}><TouchableOpacity onPress={()=>this.props.navigation.navigate('Profilom szerkesztése')}><Feather name="edit-2" size={15} color="rgb(1,194,154)" style={{marginBottom:height*0.03}} /></TouchableOpacity></View>
+                    <View style={{height:height*0.2,justifyContent:"center",flexDirection:"column",backgroundColor:"rgb(32,32,32)",borderBottomLeftRadius:20,borderBottomRightRadius:20,borderBottomWidth:3,borderBottomColor:"rgb(1,194,154)"}}>
+                        <View style={{flex:1,flexDirection:"row",backgroundColor:""}}>
+                                <View style={{flex:2,justifyContent:"center"}}><Text style={{fontSize:18,margin:10,color:"white"}}>Felhasználónév:</Text></View>
+                                <View style={{flex:1,justifyContent:"center"}}><Text style={{fontSize:18,margin:10,color:"white"}}>{this.state.felhasznalonev}</Text>
+                                    <View style={{justifyContent:"center",position:"absolute",left:width*0.16}}><TouchableOpacity onPress={()=>this.props.navigation.navigate('Profilom szerkesztése')}><Feather name="edit-2" size={15} color="rgb(1,194,154)" style={{marginBottom:height*0.03}} /></TouchableOpacity></View>
+                                </View>  
+                        </View>
+                        <View style={{flex:1,flexDirection:"row",backgroundColor:""}}>
+                                <View style={{flex:2,justifyContent:"center"}}><Text style={{fontSize:18,margin:10,color:"white"}}>Profil azonosítód</Text></View>
+                                <View style={{flex:1,justifyContent:"center"}}><Text  style={{fontSize:18,margin:10,color:"white"}}>{this.state.id}</Text></View>
+                        </View>
                     </View>
-                        
-                     
-                      
+
+
+                    <View style={{height:height*0.09,backgroundColor:"rgb(18,18,18)",marginTop:height*0.020,borderTopEndRadius:20,borderTopLeftRadius:20}}>
+                    <Text style={{fontSize:20,alignSelf:"center",fontWeight:"bold",color:"white",position:"absolute",bottom:width*0.05}}>Barátok</Text>
+                        <View style={{marginLeft:5,left:0,backgroundColor:"rgb(1,192,154)",position:"absolute",borderRadius:50,width:width*0.1,alignItems:"center",height:width*0.1,justifyContent:"center"}}><FontAwesome5 name="user-friends" size={25} color="white" /></View>   
+                    </View>
+                    <View style={{height:height*0.1,justifyContent:"center",flexDirection:"row",backgroundColor:"rgb(32,32,32)",borderBottomLeftRadius:20,borderBottomRightRadius:20,borderBottomWidth:3,borderBottomColor:"rgb(1,194,154)"}}>
+                       <View style={{flex:2,justifyContent:"center"}}><Text style={{fontSize:18,margin:10,color:"white"}}>Összes barátod:</Text></View>
+                        <View style={{flex:1,justifyContent:"center"}}><Text style={{fontSize:18,margin:10,color:"white"}}>0</Text>
+                        <View style={{justifyContent:"center",position:"absolute",left:width*0.16}}><TouchableOpacity onPress={()=>this.props.navigation.navigate('Barátaim')}><FontAwesome5 name="plus" size={25} color="rgb(1,194,154)"/></TouchableOpacity></View>
+                    </View>  
                     </View>
 
                     <View style={{height:height*0.1,backgroundColor:"rgb(18,18,18)",marginTop:height*0.050,justifyContent:"center",borderTopEndRadius:20,borderTopLeftRadius:20}}>
@@ -349,5 +366,5 @@ const styles = StyleSheet.create({
     countContainer: {
         alignItems: "center",
         padding: 10
-    }
+    },
 });
